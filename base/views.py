@@ -25,7 +25,7 @@ def update(request, u_id):
     task = Tasks.objects.get(id=u_id)
 
     if request.method == 'POST':
-        return redirect('doupdtasks', u_id=u_id)  # Redirect to form processing view
+        return redirect('doupdtasks', u_id=u_id)  
 
     return render(request, 'base/update.html', {'task': task})
 
