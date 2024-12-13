@@ -2,31 +2,68 @@
 <html lang="en">
   <head>
     <style>
+      .body {
+        background-color: #000000;
+        color: #d15050;
+      }
       .container {
         margin-top: 50px;
         padding: 40px;
-        border: 2px solid #343a40; /* Darker border */
-        border-radius: 8px; /* Rounded corners */
-        background-color: #f8f9fa; /* Light background */
-        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        border: 2px solid #6c757d;
+        border-radius: 8px;
+        background-color: #1e1e1e;
+        box-shadow: 0 2px 4px rgba(255,255,255,.1);
       }
       h1, h3 {
-        color: #343a40; /* Dark heading color */
+        color: #ffffff;
+        font-size: 1.5rem;
+        letter-spacing: 1px;
       }
       hr {
-        border-top: 2px solid #343a40; /* Darker horizontal line */
+        border-top: 2px solid #6c757d;
       }
       .alert-success {
+        background-color: #28a745;
+        color: #ffffff;
         margin-bottom: 20px;
         font-weight: bold;
         text-align: center;
       }
       form .form-label {
         font-weight: bold;
+        color: #ffffff;
       }
       form button {
-        width: 100%; /* Full width submit button */
+        width: 100%;
         padding: 10px;
+      }
+      form button:hover {
+        background-color: #ffc107;
+        color: #000000 !important;
+      }
+      .typewriter h1 {
+        overflow: hidden; /* Add this to hide overflow */
+        border-right: .15em solid #ac0101;
+        white-space: nowrap;
+        margin: 0 auto;
+        letter-spacing: .12rem;
+        animation: 
+          typing 2.5s steps(30, end) infinite,
+          blink-caret .5s step-end infinite;
+      }
+
+      /* The typing effect */
+      @keyframes typing {
+        0% { width: 0 }
+        50% { width: 40% }
+    
+        100% { width: 0 }
+      }
+
+      /* The typewriter cursor effect */
+      @keyframes blink-caret {
+        from, to { border-color: transparent }
+        50% { border-color: #ffffff; }
       }
     </style>
     <meta charset="utf-8">
@@ -35,15 +72,18 @@
     <title>Todo - Home</title>
   </head>
   <body>
-    {% include 'base/nav.html' %}
+    <div class="body">
+      {% include 'base/nav.html' %}
 
     {% if success %}
-      <div class="alert alert-success" role="alert">
+      <div class="alert alert-success py-2" role="alert">
         Data Saved
       </div>
     {% endif %}
 
-    <h1 class="text-center mb-4 my-3">The Best Todos App</h1>
+    <div class="typewriter body">
+      <h1 class="text-center  mb-4 my-3">The Best Todos App</h1>
+    </div>
 
     <div class="container">
       <h3 class="text-center mb-3">Enter Your Tasks Here</h3>
@@ -52,13 +92,13 @@
         {% csrf_token %}
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
-          <input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp">
+          <input type="text" class="form-control bg-dark text-light border-secondary" id="title" name="title" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
           <label for="desc" class="form-label">Description</label>
-          <textarea class="form-control" id="desc" name="desc" rows="3"></textarea>
+          <textarea class="form-control bg-dark text-light border-secondary" id="desc" name="desc" rows="3"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-outline-warning">Submit</button>
       </form>
     </div>
 

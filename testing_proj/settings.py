@@ -60,6 +60,11 @@ TEMPLATES = [
     },
 ]
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+}
+
 WSGI_APPLICATION = 'testing_proj.wsgi.application'
 
 
